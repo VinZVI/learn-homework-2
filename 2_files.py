@@ -12,11 +12,13 @@
 """
 
 def main():
-    """
-    Эта функция вызывается автоматически при запуске скрипта в консоли
-    В ней надо заменить pass на ваш код
-    """
-    pass
-
+    with open('referat.txt', 'r', encoding='utf-8') as file_input:
+        sum_words = 0
+        with open('referat2.txt', 'w', encoding='utf-8') as file_output:
+            for line in file_input:
+                line_list = line.split()
+                sum_words += len(line_list)
+                file_output.write(line.replace(".", '!'))
+        print(sum_words)
 if __name__ == "__main__":
     main()
